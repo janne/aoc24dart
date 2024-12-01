@@ -1,0 +1,29 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "collection",
+      "rootUri": "file:///Users/janandersson/.pub-cache/hosted/pub.dev/collection-1.19.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "dartz",
+      "rootUri": "file:///Users/janandersson/.pub-cache/hosted/pub.dev/dartz-0.10.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "aoc24dart",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    }
+  ],
+  "generated": "2024-12-01T23:09:34.387880Z",
+  "generator": "pub",
+  "generatorVersion": "3.5.0",
+  "flutterRoot": "file:///Users/janandersson/.asdf/installs/flutter/3.24.0-stable",
+  "flutterVersion": "3.24.0",
+  "pubCache": "file:///Users/janandersson/.pub-cache"
+}
