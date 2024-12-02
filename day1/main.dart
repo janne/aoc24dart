@@ -8,9 +8,9 @@ void main() async {
     final (a, b) = lists;
     return ([...a, nums.elementAt(0)], [...b, nums.elementAt(1)]);
   }));
-  final day1 = IterableZip([a..sort(), b..sort()]).map((nums) => (nums[0] - nums[1]).abs()).reduce((a, b) => a + b);
-  print("Day 1: $day1");
+  final part1 = IterableZip([a..sort(), b..sort()]).map((nums) => (nums[0] - nums[1]).abs()).reduce((a, b) => a + b);
+  print("part1: $part1");
 
-  final day2 = a.map((num) => num * b.where(((num2) => num2 == num)).length).reduce((a, b) => a + b);
-  print("Day 2: $day2");
+  final part2 = a.map((num) => num * b.where(((num2) => num2 == num)).length).reduce((a, b) => a + b);
+  print("part2: $part2");
 }
