@@ -61,11 +61,19 @@ int? countSteps(Map map, Pos initialPos) {
 
 int? introduceLoops(Map map, Pos initialPos) {
   int loops = 0;
+  final startAt = DateTime.now();
   for (int y = 0; y < map.length; y++) {
     for (int x = 0; x < map.first.length; x++) {
       final progress =
-          (y * map.first.length + x) / (map.first.length * map.length) * 100;
-      print("progress: ${progress.toStringAsFixed(2)}%");
+          (y * map.first.length + x) / (map.first.length * map.length);
+
+      final untilNow = DateTime.now().difference(startAt).inSeconds;
+      final timeLeft = Duration(
+          seconds: progress == 0 ? 0 : (untilNow / (progress)).round());
+      final formattedTime = timeLeft.toString().split(".")[0];
+
+      print(
+          "progress: ${(progress * 100).toStringAsFixed(2)}%, seconds left: $formattedTime, so far: $loops");
       if (map[y][x]) continue;
       final updatedMap = map.map((row) => row.toList()).toList();
       updatedMap[y][x] = true;
