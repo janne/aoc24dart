@@ -1,9 +1,13 @@
 # Advent of Code 2024 in Dart
 
+## Link
+
+https://adventofcode.com/2024/
+
 ## Run
 
-Run day 1 with:
+Run day N with:
 
 ```
-dart day1/main.dart
+dart dayN/main.dart
 ```
