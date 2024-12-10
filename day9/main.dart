@@ -14,11 +14,7 @@ List<int?> expandInput(List<String> input) {
   }).toList();
 }
 
-int calculateChecksum(List<int> list) => list
-    .asMap()
-    .entries
-    .map((entry) => entry.key * entry.value)
-    .reduce((a, b) => a + b);
+int calculateChecksum(List<int> list) => list.asMap().entries.map((entry) => entry.key * entry.value).reduce((a, b) => a + b);
 
 List<int> moveItemsPart1(List<int?> list) {
   int moved = 0;

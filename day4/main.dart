@@ -84,8 +84,7 @@ int countXmas2(List<List<String>> input) {
   for (var y = 0; y < input.length; y++) {
     final row = input[y];
     for (var x = 0; x < row.length; x++) {
-      final words = pickWords2(x, y, input)
-          .where((word) => word == "MAS" || word == "SAM");
+      final words = pickWords2(x, y, input).where((word) => word == "MAS" || word == "SAM");
       count += words.length == 2 ? 1 : 0;
     }
   }
@@ -105,9 +104,7 @@ int countXmas1(List<List<String>> input) {
 }
 
 void main() async {
-  final input = (await File("day4/input").readAsLines())
-      .map((line) => line.split(""))
-      .toList();
+  final input = (await File("day4/input").readAsLines()).map((line) => line.split("")).toList();
 
   final part1 = countXmas1(input);
   print("part1: $part1");

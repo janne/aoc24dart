@@ -2,9 +2,7 @@ import 'dart:io';
 
 import 'package:collection/collection.dart';
 
-List<List<int>> parseRules(List<String> rules) => rules
-    .map((rule) => rule.split("|").map((i) => int.parse(i)).toList())
-    .toList();
+List<List<int>> parseRules(List<String> rules) => rules.map((rule) => rule.split("|").map((i) => int.parse(i)).toList()).toList();
 
 Map<int, List<int>> buildRuleMap(List<List<int>> rules) => rules.fold(
     <int, List<int>>{},
@@ -13,9 +11,7 @@ Map<int, List<int>> buildRuleMap(List<List<int>> rules) => rules.fold(
           rule[1]: [...(memo[rule[1]] ?? {}), rule[0]]
         });
 
-List<List<int>> parseUpdates(List<String> updates) => updates
-    .map((update) => update.split(",").map((i) => int.parse(i)).toList())
-    .toList();
+List<List<int>> parseUpdates(List<String> updates) => updates.map((update) => update.split(",").map((i) => int.parse(i)).toList()).toList();
 
 int middleValue(List<int> values) => values[values.length ~/ 2];
 
@@ -40,9 +36,7 @@ void main() async {
   final ruleMap = buildRuleMap(rules);
   final updates = parseUpdates(input[1].split("\n"));
 
-  final part1 = updates
-      .map((update) => isValidUpdate(ruleMap, update) ? middleValue(update) : 0)
-      .reduce((a, b) => a + b);
+  final part1 = updates.map((update) => isValidUpdate(ruleMap, update) ? middleValue(update) : 0).reduce((a, b) => a + b);
 
   print("part1: $part1");
 

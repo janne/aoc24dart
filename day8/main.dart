@@ -30,10 +30,7 @@ Iterable<(T, T)> findPermuations<T>(List<T> list) sync* {
   final midY = (p1.y + p2.y) / 2;
   final dx = (p1.x - midX) * scaleFactor;
   final dy = (p1.y - midY) * scaleFactor;
-  return (
-    (x: (midX + dx).round(), y: (midY + dy).round()),
-    (x: (midX - dx).round(), y: (midY - dy).round())
-  );
+  return ((x: (midX + dx).round(), y: (midY + dy).round()), (x: (midX - dx).round(), y: (midY - dy).round()));
 }
 
 bool isWithinMax(Pos p, Pos max) {
@@ -87,17 +84,13 @@ Set<Pos> findAntinodesPart2(Antennas antennas, Pos max) {
 }
 
 void main() async {
-  final input = (await File("day8/input").readAsLines())
-      .map((line) => line.split("").toList())
-      .toList();
+  final input = (await File("day8/input").readAsLines()).map((line) => line.split("").toList()).toList();
 
   final antennas = parseInput(input);
 
-  final antinodesPart1 =
-      findAntinodesPart1(antennas, (x: input.first.length, y: input.length));
+  final antinodesPart1 = findAntinodesPart1(antennas, (x: input.first.length, y: input.length));
   print("part1: ${antinodesPart1.length}");
 
-  final antinodesPart2 =
-      findAntinodesPart2(antennas, (x: input.first.length, y: input.length));
+  final antinodesPart2 = findAntinodesPart2(antennas, (x: input.first.length, y: input.length));
   print("part2: ${antinodesPart2.length}");
 }

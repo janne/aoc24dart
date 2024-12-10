@@ -17,10 +17,7 @@ Pos findStartPos(List<List<String>> map) {
 }
 
 bool isInsideMap(Pos pos, Map map) {
-  return pos.x >= 0 &&
-      pos.x < map.first.length &&
-      pos.y >= 0 &&
-      pos.y < map.length;
+  return pos.x >= 0 && pos.x < map.first.length && pos.y >= 0 && pos.y < map.length;
 }
 
 Pos? advancePos(Pos pos, Map map) {
@@ -69,8 +66,7 @@ int? countSteps(Map map, Pos initialPos) {
     }
     pos = newPos;
   }
-  return visited
-      .fold(<(int, int)>{}, (memo, pos) => {...memo, (pos.x, pos.y)}).length;
+  return visited.fold(<(int, int)>{}, (memo, pos) => {...memo, (pos.x, pos.y)}).length;
 }
 
 int? introduceLoops(Map map, Pos initialPos, int totalSteps) {
@@ -80,8 +76,7 @@ int? introduceLoops(Map map, Pos initialPos, int totalSteps) {
   int i = 0;
   while (true) {
     i++;
-    print(
-        "Step: ${(i / totalSteps * 100).toStringAsFixed(2)}%, so far: ${loops.length}");
+    print("Step: ${(i / totalSteps * 100).toStringAsFixed(2)}%, so far: ${loops.length}");
     final nextPos = advancePos(pos, map);
     if (nextPos == null) break;
     pos = nextPos;
@@ -96,14 +91,11 @@ int? introduceLoops(Map map, Pos initialPos, int totalSteps) {
 }
 
 void main() async {
-  final rawMap = (await File("day6/input").readAsLines())
-      .map((line) => line.split("").toList())
-      .toList();
+  final rawMap = (await File("day6/input").readAsLines()).map((line) => line.split("").toList()).toList();
 
   final initialPos = findStartPos(rawMap);
 
-  final map =
-      rawMap.map((row) => row.map((cell) => cell == "#").toList()).toList();
+  final map = rawMap.map((row) => row.map((cell) => cell == "#").toList()).toList();
 
   final part1 = countSteps(map, initialPos);
   final part2 = introduceLoops(map, initialPos, part1!);

@@ -4,21 +4,12 @@ typedef Equation = ({int testValue, List<int> numbers});
 
 List<Equation> parseInput(List<String> input) => input.map((line) {
       final inp = line.split(": ");
-      return (
-        testValue: int.parse(inp[0]),
-        numbers: inp[1].split(" ").map((i) => int.parse(i)).toList()
-      );
+      return (testValue: int.parse(inp[0]), numbers: inp[1].split(" ").map((i) => int.parse(i)).toList());
     }).toList();
 
 int validateEquationsPart1(List<Equation> equations) => equations
-    .map((equation) => equation.numbers.fold(
-            <int>[],
-            (nums, num) => nums.isEmpty
-                ? [num]
-                : [
-                    ...nums.map((n) => n + num),
-                    ...nums.map((n) => n * num)
-                  ]).any((r) => r == equation.testValue)
+    .map((equation) => equation.numbers.fold(<int>[],
+            (nums, num) => nums.isEmpty ? [num] : [...nums.map((n) => n + num), ...nums.map((n) => n * num)]).any((r) => r == equation.testValue)
         ? equation.testValue
         : 0)
     .reduce((a, b) => a + b);
