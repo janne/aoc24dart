@@ -15,7 +15,7 @@
   ];
 
   # Sets environment variables in the workspace
-  env = {};
+  env = { };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
@@ -47,6 +47,8 @@
         # Example: install JS dependencies from NPM
         # npm-install = "npm install";
         dart-pub-get = "dart pub get";
+        vi-mode = "echo 'set editing-mode vi' >> ~/.inputrc";
+        ctrl-l = "echo \C-l:clear-screen >> ~/.inputrc";
       };
       # Runs when the workspace is (re)started
       onStart = {
@@ -56,3 +58,4 @@
     };
   };
 }
+
